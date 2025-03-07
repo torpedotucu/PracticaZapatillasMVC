@@ -1,0 +1,43 @@
+﻿
+@{
+    Zapatilla zapas = ViewData["ZAPAS"] as Zapatilla;
+}
+@section Scripts{
+    <script>
+        
+        function loadImagen(posicion){
+            $(function(){
+                $("#imagenDiv").load("/Zapas/_ImagenesPartial?posicion="+posicion+"&idZapas="+@zapas.IdProducto );
+            });
+            
+        }
+        loadImagen(1);
+    </script>
+}
+
+<h1 class="h1">
+    DETALLES ZAPATILLA
+</h1>
+
+<div class="card">
+    <div class="card-header">
+        @zapas.Nombre
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @zapas.Descripcion
+        </p>
+        
+    </div>
+    <div class="card-footer">
+        <p>
+            @zapas.Precio
+        </p>
+    </div>
+</div>
+<hr />
+<div id="imagenDiv">
+
+</div>
+
+
